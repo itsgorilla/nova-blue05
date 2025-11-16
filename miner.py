@@ -132,7 +132,6 @@ def iterative_sampling_loop(
         except Exception:
             pass
 
-        # Merge, deduplicate, sort and take top x
         top_pool = pd.concat([top_pool, batch_scores])
         top_pool = top_pool.drop_duplicates(subset=["InChIKey"], keep="first")
         top_pool = top_pool.sort_values(by="score", ascending=False)
